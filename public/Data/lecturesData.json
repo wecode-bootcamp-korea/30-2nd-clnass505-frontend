@@ -1,0 +1,38 @@
+{
+  "id": 1,
+  "subcategory": "캐릭터 굿즈",
+  "creater_nickname": "지지곰",
+  "title": "귀여운 낙서로 돈 버는 법! 벚꽃연금 부럽지 않다!",
+  "price": 100000,
+  "discount_rate": 10,
+  "discount_price": 25000,
+  "detail_image_url": {
+    "1": "https://cdn.pixabay.com/photo/2017/01/12/10/40/school-1974369_960_720.jpg",
+    "2": "https://cdn.pixabay.com/photo/2016/08/26/01/41/flowers-1621066_960_720.jpg",
+    "3": "https://cdn.pixabay.com/photo/2018/02/05/23/04/rome-3133498_960_720.jpg"
+  },
+  "thumbnail_image": "https://cdn.pixabay.com/photo/2019/02/10/12/54/colored-pencil-3987163_960_720.jpg",
+  "description": "낙서가 돈이 된다! 귀여운 이모티콘을 만들고 싶으시다구요?",
+  "difficulty": "초급자 대상",
+  "likes": 3,
+  "reviews_info": [
+    {
+      "user": "냠냠이",
+      "title": "조아용",
+      "content": "최소한의 리소스 아웃풋 극대화 !란 강의가 맞네요 각 카테고리별 팁이 있고 필요한 정보가 들어가 있네요",
+      "rating": 4,
+      "image_url": [
+        "https://cdn.pixabay.com/photo/2016/08/26/01/41/flowers-1621066_960_720.jpg"
+      ]
+    },
+    {
+      "user": "위코드",
+      "title": "빠르고 쉽게 배울수 있어욥",
+      "content": "강의 영상임에도 엄청 퀄리티가 높고, 준비물부터 커리큘럼까지 세세하게 짜여져 있어, 따라하기만 하면 될 정도입니다. ",
+      "rating": 4,
+      "image_url": [
+        "https://cdn.pixabay.com/photo/2021/10/29/15/05/floral-6752135_960_720.jpg"
+      ]
+    }
+  ]
+}

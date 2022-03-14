@@ -1,0 +1,22 @@
+.banner {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  border-bottom: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
+  background-color: rgb(253, 48, 73);
+  color: rgb(255, 255, 255);
+
+  .bannerTitle {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .bannerSubTitle {
+    font-size: small;
+  }
+}

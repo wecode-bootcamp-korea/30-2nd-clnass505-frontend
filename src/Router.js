@@ -19,7 +19,7 @@ function Router() {
         <Route path="/list" element={<List />} />;
         <Route path="/login" com element={<Login />} />;
         <Route path="/oauth/kakao" element={<KakaoLogin />} />
-        <Route path="/detail" element={<Detail />} />;
+        <Route path="/detail/:id" element={<Detail />} />;
         <Route path="/create" element={<Create />} />;
         <Route path="/mypage" element={<MyPage />} />;
       </Routes>

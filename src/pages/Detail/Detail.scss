@@ -1,2 +1,347 @@
-.Detail {
+.detail {
+  margin-top: 82px;
+  font-size: 13px;
+
+  .titleBox {
+    max-width: 1176px;
+    width: 100%;
+    margin: 0 auto;
+
+    .titleImg {
+      display: flex;
+      justify-content: space-around;
+      height: 519px;
+      cursor: pointer;
+
+      .titleImgMain {
+        width: 58.8%;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .subImgBox {
+        .titleSubImg {
+          height: 49.4%;
+          margin-left: 6px;
+          margin-bottom: 6px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .classInner {
+    padding-top: 24px;
+    max-width: 1227px;
+    width: 100%;
+    margin: 0 auto;
+
+    .bottomInner {
+      width: 100%;
+      margin: 11px 10px;
+    }
+
+    .classSection {
+      display: flex;
+      flex-wrap: wrap;
+      -webkit-box-pack: start;
+      place-content: stretch flex-start;
+      margin: 0 1px 0 1px;
+
+      .section {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .leftInner {
+        position: static;
+        width: 67%;
+        height: fit-content;
+
+        button {
+          border: none;
+          background-color: rgb(255, 255, 255);
+          color: rgb(114, 114, 114);
+          font-weight: 400;
+          font-size: medium;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .lectureInfoBox {
+        padding: 5px 5px 0 10px;
+        height: 100%;
+        width: 100%;
+
+        .bannerBox {
+          padding: 10px 5px 20px 0;
+          margin: 10px 0 0 10px;
+        }
+
+        .lectureInfoSubBox {
+          .categoryBar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: sticky;
+            height: 40px;
+            top: 78px;
+            padding-left: 10px;
+            margin: 5px 0 1px 0;
+            color: rgb(114, 114, 114);
+            background-color: rgb(255, 255, 255);
+
+            button {
+              &:hover {
+                color: black;
+                font-weight: bold;
+                text-decoration: 8px underline;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .lectureGuide {
+            margin-left: 10px;
+
+            h2 {
+              margin: 10px 0 20px 0;
+              font-size: 25px;
+              font-weight: bold;
+            }
+          }
+
+          .thumbnailImage {
+            img {
+              width: 100%;
+              margin-top: 20px;
+            }
+          }
+
+          .refund {
+            margin: 10px 10px;
+
+            h1 {
+              margin: 10px 0 20px 0;
+              font-size: 25px;
+              font-weight: bold;
+            }
+
+            .refundInfo {
+              margin: 10px 0;
+              padding: 10px;
+              background-color: rgb(247, 247, 247);
+            }
+          }
+
+          .Wecode30 {
+            h1 {
+              margin: 10px 0 20px 0;
+              font-size: 25px;
+              font-weight: bold;
+            }
+            .wecode30Info {
+              margin: 10px 0;
+              padding: 10px;
+              background-color: rgb(247, 247, 247);
+            }
+          }
+        }
+      }
+
+      .rightInner {
+        position: static;
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+
+        .applyBox {
+          position: sticky;
+          top: 79px;
+          max-height: 100vh;
+          padding: 0 4px 0 4px;
+
+          .applySectionBox {
+            padding: 24px;
+            border-radius: 3px;
+            border: 1px solid rgb(255, 255, 255);
+            margin-bottom: 12px;
+
+            .categoryNickName {
+              margin: 0 0 14px 3px;
+              font-size: 13px;
+            }
+
+            .classTitle {
+              font-weight: 600;
+              font-size: large;
+              line-height: 1.2;
+            }
+
+            .createInfo {
+              margin: 8px 0px 12px;
+
+              .availability {
+                margin: 15px 5px;
+                background-color: rgb(248, 248, 248);
+                width: 94px;
+                height: 17px;
+                text-align: center;
+
+                span {
+                  font-size: small;
+                  font-weight: bold;
+                  color: rgb(197, 197, 197);
+                  border-radius: 5px;
+                }
+              }
+
+              .price {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+
+                span {
+                  margin: 10px 10px 10px 10px;
+                }
+
+                .discount {
+                  font-weight: 200;
+                  font-size: 13px;
+                }
+
+                .totalPrice {
+                  font-weight: bolder;
+                  font-size: larger;
+                  color: rgb(253, 48, 73);
+                }
+              }
+            }
+
+            .classInfo {
+              display: flex;
+              flex-direction: column;
+              margin: 16px 0 0 0;
+              padding: 20px 0;
+              font-weight: lighter;
+              font-size: 13px;
+              margin: 10px 10px 10px 10px;
+
+              img {
+                height: 30px;
+                width: 30px;
+              }
+
+              .classInfoBoxStyle {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .contentText {
+                  margin-right: 5px;
+                }
+              }
+
+              .classInfoBox {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 5px 5px 15px 5px;
+
+                img {
+                  height: 30px;
+                  margin-right: 10px;
+                }
+              }
+
+              .classDetailInfo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 5px 5px 5px 5px;
+
+                img {
+                  height: 30px;
+                  margin-right: 10px;
+                }
+              }
+            }
+
+            .like {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              button {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+                width: 40%;
+                border: none;
+                margin: 5px;
+                background-color: rgb(248, 248, 248);
+                border-radius: 5px;
+
+                &:hover {
+                  cursor: pointer;
+                  background-color: rgb(223, 223, 223);
+                }
+
+                img {
+                  height: 20px;
+                }
+
+                span {
+                  font-size: medium;
+                  font-weight: bold;
+                  margin: 10px 10px 10px 10px;
+                }
+              }
+            }
+
+            .classBtn {
+              height: 14px;
+              width: 100%;
+              margin: 0 0 5px 0;
+              padding: 25px 0 20px 0;
+              display: inline-block;
+
+              button {
+                width: 100%;
+                height: 52px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(255, 87, 0);
+                padding: 12px 18px;
+                border: none;
+                border-radius: 0.25rem;
+                font-size: large;
+                font-weight: bold;
+                line-height: 1.5;
+
+                &:hover {
+                  cursor: pointer;
+                  background-color: rgb(138, 46, 0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

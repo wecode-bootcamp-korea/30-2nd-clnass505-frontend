@@ -28,16 +28,16 @@ const KakaoLogin = () => {
       });
   };
 
-  const sendToken = accessToken => {
-    fetch(API.KakaoLogin, {
+  const sendToken = access_token => {
+    fetch(`${API.KakaoLogin}`, {
       method: 'GET',
       headers: {
-        Authorization: accessToken,
+        Authorization: access_token,
       },
     })
       .then(res => res.json())
       .then(res => {
-        localStorage.setItem('access_token', accessToken);
+        localStorage.setItem('access_token', res.access_token);
         goToMain();
       });
   };

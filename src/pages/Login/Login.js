@@ -12,7 +12,8 @@ const Login = () => {
             <div className="leftBox">
               <div className="leftBoxDetail">
                 <div className="leftLogoBox">
-                  <h1 className="islogin">CLNASS505</h1>
+                  <h1 className="islogin">클났을때 SOS</h1>
+                  <h1 className="islogin">클나쓰 505</h1>
                 </div>
                 <div className="kakaoLogin">
                   <div className="loginTextBox">

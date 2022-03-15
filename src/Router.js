@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import Main from './pages/Main/Main';
 import List from './pages/List/List';
 import Login from './pages/Login/Login';
+import KakaoLogin from './pages/Login/KakaoLogin';
 import Detail from './pages/Detail/Detail';
 import Create from './pages/Create/Create';
 import MyPage from './pages/MyPage/MyPage';
@@ -16,7 +17,8 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />;
         <Route path="/list" element={<List />} />;
-        <Route path="/login" element={<Login />} />;
+        <Route path="/login" com element={<Login />} />;
+        <Route path="/oauth/kakao" element={<KakaoLogin />} />
         <Route path="/detail" element={<Detail />} />;
         <Route path="/create" element={<Create />} />;
         <Route path="/mypage" element={<MyPage />} />;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import UserSection from './component/UserSection';
 import SearchSection from './component/SearchSection';
@@ -21,6 +22,7 @@ export default function Nav() {
 
   const clickLogout = () => {
     setIsLogin(false);
+    localStorage.removeItem('access_token');
   };
 
   const clickSearchBox = () => {
@@ -66,6 +68,8 @@ const NavSection = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  background-color: white;
+  z-index: 1000;
 `;
 
 const NavWrap = styled.div`

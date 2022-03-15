@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Categories from './Categories';
 import { Menu } from '@styled-icons/boxicons-regular/Menu';
-import useOverMouseOutside from '../hook/useOverMouseOutside';
+import useOverMouseOutside from '../hooks/useOverMouseOutside';
 
 export default function CategoryMenu() {
   const [isHoverCategory, setIsHoverCategory] = useState(false);

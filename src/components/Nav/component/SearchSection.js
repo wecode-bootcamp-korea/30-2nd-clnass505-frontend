@@ -6,18 +6,18 @@ import RecentSearchedSection from './RecentSearchesSection';
 import Logo from '../../Logo/Logo';
 
 export default function SearchSection({ clickCloseSearchBox }) {
-  const [searchHistories, setSearchHistoried] = useState([]);
+  const [searchHistories, setSearchHistories] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('searchHistory')) {
-      setSearchHistoried(JSON.parse(localStorage.getItem('searchHistory')));
+      setSearchHistories(JSON.parse(localStorage.getItem('searchHistory')));
     }
   }, []);
 
   const clickDeleteRecentSearchedAll = () => {
     localStorage.removeItem('searchHistory');
-    setSearchHistoried([]);
+    setSearchHistories([]);
   };
 
   const clickDeleteSearchHistory = event => {
@@ -29,42 +29,45 @@ export default function SearchSection({ clickCloseSearchBox }) {
       'searchHistory',
       JSON.stringify(searchHistories.filter(el => el !== event.target.id))
     );
-    setSearchHistoried(JSON.parse(localStorage.getItem('searchHistory')));
+    setSearchHistories(JSON.parse(localStorage.getItem('searchHistory')));
   };
 
   const submitAlreadyExistThing = value => {
     const newSearchHistories = searchHistories.filter(el => el !== value);
     newSearchHistories.unshift(value);
     localStorage.setItem('searchHistory', JSON.stringify(newSearchHistories));
-    setSearchHistoried(JSON.parse(localStorage.getItem('searchHistory')));
+    setSearchHistories(JSON.parse(localStorage.getItem('searchHistory')));
   };
 
   const clickRecentSearchValue = event => {
     submitAlreadyExistThing(event.target.innerText);
     const queryString = `?search=${event.target.innerText}`;
     navigate('/list' + queryString);
+    clickCloseSearchBox();
   };
 
   return (
     <SearchContainerWrap>
-      <Logo isFixed={true} />
-      <SearchContainer>
-        <SearchContainerTop
-          searchHistories={searchHistories}
-          setSearchHistoried={setSearchHistoried}
-          submitAlreadyExistThing={submitAlreadyExistThing}
-          clickCloseSearchBox={clickCloseSearchBox}
-        />
-        <SearchContents>
-          <RecentSearchedSection
+      <Logo isFixed={true} clickCloseSearchBox={clickCloseSearchBox} />
+      <SearchContainerWap>
+        <SearchContainer>
+          <SearchContainerTop
             searchHistories={searchHistories}
+            setSearchHistories={setSearchHistories}
             submitAlreadyExistThing={submitAlreadyExistThing}
-            clickDeleteRecentSearchedAll={clickDeleteRecentSearchedAll}
-            clickDeleteSearchHistory={clickDeleteSearchHistory}
-            clickRecentSearchValue={clickRecentSearchValue}
+            clickCloseSearchBox={clickCloseSearchBox}
           />
-        </SearchContents>
-      </SearchContainer>
+          <SearchContents>
+            <RecentSearchedSection
+              searchHistories={searchHistories}
+              submitAlreadyExistThing={submitAlreadyExistThing}
+              clickDeleteRecentSearchedAll={clickDeleteRecentSearchedAll}
+              clickDeleteSearchHistory={clickDeleteSearchHistory}
+              clickRecentSearchValue={clickRecentSearchValue}
+            />
+          </SearchContents>
+        </SearchContainer>
+      </SearchContainerWap>
       <SearchContainerOutside onClick={clickCloseSearchBox} />
     </SearchContainerWrap>
   );
@@ -76,6 +79,9 @@ const SearchContainerWrap = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
+`;
+
+const SearchContainerWap = styled.div`
   background-color: white;
 `;
 

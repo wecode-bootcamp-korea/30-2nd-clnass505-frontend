@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Logo({ isFixed }) {
+export default function Logo({ isFixed, clickCloseSearchBox }) {
   return (
-    <SiteTilte to="/" isfix={isFixed ? 1 : 0}>
+    <SiteTilte to="/" isfix={isFixed ? 1 : 0} onClick={clickCloseSearchBox}>
       CLNASS505<KorTitle>클나쓰SOS</KorTitle>
     </SiteTilte>
   );

@@ -6,7 +6,7 @@ import { CloseSolid } from '@styled-icons/zondicons/CloseSolid';
 
 export default function SearchContainerTop({
   searchHistories,
-  setSearchHistoried,
+  setSearchHistories,
   submitAlreadyExistThing,
   clickCloseSearchBox,
 }) {
@@ -23,11 +23,12 @@ export default function SearchContainerTop({
     } else {
       searchHistories.unshift(searchValue);
       localStorage.setItem('searchHistory', JSON.stringify(searchHistories));
-      setSearchHistoried(JSON.parse(localStorage.getItem('searchHistory')));
+      setSearchHistories(JSON.parse(localStorage.getItem('searchHistory')));
     }
     const queryString = `?search=${searchValue}`;
     setSearchValue('');
     navigate('/list' + queryString);
+    clickCloseSearchBox();
   };
 
   const clickDeleteBtn = () => {

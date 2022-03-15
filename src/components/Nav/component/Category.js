@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetAll } from '../../../redux/listFiltering';
 import styled from 'styled-components';
 import { IosArrowRight } from '@styled-icons/fluentui-system-filled/IosArrowRight';
 
@@ -9,6 +11,7 @@ export default function Category({
   subCategory,
   setSubCategory,
 }) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let title = '';
@@ -29,12 +32,14 @@ export default function Category({
   };
 
   const clickMainCategory = event => {
-    let queryStrging = `?mainCategory=${event.target.id}`;
+    let queryStrging = `?category=${event.target.id}`;
+    dispatch(resetAll());
     navigate('/list' + queryStrging);
   };
 
   const clickSubCategory = event => {
-    let queryStrging = `?mainCategory=${title}&subCategory=${event.target.innerText}`;
+    let queryStrging = `?category=${title}&subcategory=${event.target.innerText}`;
+    dispatch(resetAll());
     navigate('/list' + queryStrging);
   };
 

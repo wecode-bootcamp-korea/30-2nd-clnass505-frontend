@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "thumbnail_image": "https://images.unsplash.com/photo-1640622299541-8c8ab8a098f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80",
+    "creator_nickname": "클나쓰화이팅",
+    "title": "목표 달성을 위한 - 피터 드러커의 <제로 드래프트>",
+    "liked_count": 357,
+    "discount_rate": 0.3,
+    "price": 10000,
+    "user_liked": true
+  },
+  {
+    "id": 2,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 3,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 4,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 5,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 6,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 7,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 8,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 9,
+    "thumbnail_image": "https://images.unsplash.com/photo-1553272725-086100aecf5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    "creator_nickname": "IT백과사전",
+    "title": "[100제 풀이] 예제로 마스터하는 Python(파이썬) 종합 클래스",
+    "liked_count": 19,
+    "discount_rate": 0,
+    "price": 25000,
+    "user_liked": false
+  },
+  {
+    "id": 10,
+    "thumbnail_image": "https://images.unsplash.com/photo-1640622299541-8c8ab8a098f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80",
+    "creator_nickname": "클나쓰화이팅",
+    "title": "목표 달성을 위한 - 피터 드러커의 <제로 드래프트>",
+    "liked_count": 357,
+    "discount_rate": 0.3,
+    "price": 10000,
+    "user_liked": true
+  }
+]

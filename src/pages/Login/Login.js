@@ -19,7 +19,10 @@ const Login = () => {
                     <p>3초만에 카카오로 로그인하기!</p>
                     <div>
                       <a href={KAKAO_AUTH_URL} className="KakaoBtn">
-                        <img src="/images/kakao_login3.png" />
+                        <img
+                          alt="kakaoLoginBtnImage"
+                          src="/images/kakao_login3.png"
+                        />
                       </a>
                     </div>
                   </div>
@@ -27,7 +30,7 @@ const Login = () => {
               </div>
             </div>
             <div className="rightBox">
-              <img src="/images/yoojung2.jpg" />
+              <img alt="backgroundImg" src="/images/yoojung2.jpg" />
             </div>
           </div>
         </div>

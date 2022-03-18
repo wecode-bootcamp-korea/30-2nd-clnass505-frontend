@@ -6,7 +6,6 @@ import List from './pages/List/List';
 import Login from './pages/Login/Login';
 import KakaoLogin from './pages/Login/KakaoLogin';
 import Detail from './pages/Detail/Detail';
-import Create from './pages/Create/Create';
 import MyPage from './pages/MyPage/MyPage';
 import Footer from './components/Footer/Footer';
 

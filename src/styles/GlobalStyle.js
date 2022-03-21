@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
     &::selection {
     background-color: #ff5946;
+    color: white;
     }
   }
   

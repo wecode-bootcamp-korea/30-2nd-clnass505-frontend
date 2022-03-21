@@ -6,6 +6,8 @@ export default function HalfBanner({ data }) {
       <BannerInfo>
         <BannerTitle>{data.title}</BannerTitle>
         <BannerContent>{data.content}</BannerContent>
+        <h1>{data.title}</h1>
+        <span>{data.content}</span>
       </BannerInfo>
       <BannerPicture>
         <img alt={data.title} src={data.image} />
@@ -46,6 +48,18 @@ const BannerContent = styled.span`
   margin-top: 6px;
   font-size: 14px;
   line-height: 20px;
+
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  span {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 const BannerPicture = styled.div`

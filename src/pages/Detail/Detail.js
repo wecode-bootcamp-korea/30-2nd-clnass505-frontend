@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API } from '../../config';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import ReviewList from './ReviewList/ReviewList';
 import Banner from './Banner/Banner';
+import SwiperSlide from '../../components/Slide/SwiperSlide';
 import './Detail.scss';
 
 export default function Detail() {
@@ -21,7 +24,7 @@ export default function Detail() {
 
   useEffect(() => {
     if (accessToken) {
-      fetch(`${API.detail}`, {
+      fetch(`${API.lectures}/` + params.id, {
         method: 'GET',
         headers: { Authorization: accessToken },
       })
@@ -30,7 +33,7 @@ export default function Detail() {
           setLectureData(data.result);
         });
     } else {
-      fetch(`${API.detail}`, {
+      fetch(`${API.lectures}/` + params.id, {
         method: 'GET',
       })
         .then(res => res.json())
@@ -104,163 +107,176 @@ export default function Detail() {
     creator: '내 강좌입니다',
   };
 
+  // console.log(lectureData.detail_image_url);
+
   return lectureData ? (
-    <div className="detail">
-      <div className="titleBox">
-        <div className="titleImg">
-          <div className="titleImgMain">
-            <img src={lectureData.detail_image_url[4]} />
-          </div>
-          <div className="subImgBox">
-            <div className="titleSubImg">
-              <img src={lectureData.detail_image_url[2]} />
+    <>
+      <Nav />
+      <div className="detail">
+        <div className="titleBox">
+          <div className="titleImg">
+            <div className="titleImgMain">
+              <img alt="" src={lectureData.detail_image_url[3]} />
             </div>
-            <div className="titleSubImg">
-              <img src={lectureData.detail_image_url[1]} />
+            <div className="subImgBox">
+              <div className="titleSubImg">
+                <img alt="" src={lectureData.detail_image_url[2]} />
+              </div>
+              <div className="titleSubImg">
+                <img alt="" src={lectureData.detail_image_url[1]} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="classInner">
-        <div className="classSection">
-          <div className="leftInner">
-            <div className="lectureInfoBox">
-              <div className="lectureInfoSubBox">
-                <div className="categoryBar">
-                  <button onClick={reviewBtn}>후기</button>
-                  <button onClick={classInfoBtn}>클래스소개</button>
-                  <button onClick={createrInfoBtn}>크리에이터</button>
-                  <button onClick={refundBtn}>환불정책</button>
-                  <button onClick={wecodeBtn}>wecode30</button>
-                </div>
-                <div className="bannerBox">
-                  <Banner />
-                </div>
-                <div className="lectureGuide" id="lecture_guide">
-                  <div
-                    className="classInfoText"
-                    ref={classInfoRef}
-                    tabIndex="-1"
-                  >
-                    {lectureData.description}
+        <div className="classInner">
+          <div className="classSection">
+            <div className="leftInner">
+              <div className="lectureInfoBox">
+                <div className="lectureInfoSubBox">
+                  <div className="categoryBar">
+                    <button onClick={reviewBtn}>후기</button>
+                    <button onClick={classInfoBtn}>클래스소개</button>
+                    <button onClick={createrInfoBtn}>크리에이터</button>
+                    <button onClick={refundBtn}>환불정책</button>
+                    <button onClick={wecodeBtn}>wecode30</button>
                   </div>
-                  <div className="thumbnailImage">
-                    <img
-                      src={lectureData.thumbnail_image}
-                      ref={createrInfoRef}
+                  <div className="bannerBox">
+                    <Banner />
+                  </div>
+                  <div className="lectureGuide" id="lecture_guide">
+                    <div
+                      className="classInfoText"
+                      ref={classInfoRef}
                       tabIndex="-1"
-                    />
-                    <img src={lectureData.thumbnail_image} />
+                    >
+                      {lectureData.description}
+                    </div>
+                    <div className="thumbnailImage">
+                      <img
+                        alt=""
+                        src={lectureData.thumbnail_image}
+                        ref={createrInfoRef}
+                        tabIndex="-1"
+                      />
+                      <img alt="" src={lectureData.thumbnail_image} />
+                    </div>
+                    <h2>수강생들의 생생한 스토리</h2>
                   </div>
-                  <h2>수강생들의 생생한 스토리</h2>
-                </div>
-                <div ref={reviewRef} tabIndex="-1">
-                  {lectureData.review_avg_rating ? (
-                    <ReviewList lectureData={lectureData} />
-                  ) : (
-                    '리뷰가 아직 없습니다'
-                  )}
-                </div>
-                <div className="refund" ref={refundRef} tabIndex="-1">
-                  <h1>환불정책</h1>
-                  <div className="refundInfo">
-                    환불 정책에 따라 구매일로부터 90일까지 환불 요청이 가능하며,
-                    7일 까지 전액 환불이 가능합니다.
+                  <div ref={reviewRef} tabIndex="-1">
+                    {lectureData.review_avg_rating ? (
+                      <ReviewList lectureData={lectureData} />
+                    ) : (
+                      <div className="noReview">리뷰가 아직 없습니다'</div>
+                    )}
                   </div>
-                  <div className="Wecode30" ref={wecodeRef} tabIndex="-1">
-                    <h1>Wecode30</h1>
-                    <div className="wecode30Info">위코드 30기 화이팅 :)</div>
+                  <div className="refund" ref={refundRef} tabIndex="-1">
+                    <h1>환불정책</h1>
+                    <div className="refundInfo">
+                      환불 정책에 따라 구매일로부터 90일까지 환불 요청이
+                      가능하며, 7일 까지 전액 환불이 가능합니다.
+                    </div>
+                    <div className="Wecode30" ref={wecodeRef} tabIndex="-1">
+                      <h1>Wecode30</h1>
+                      <div className="wecode30Info">위코드 30기 화이팅 :)</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="rightInner">
-            <div className="applyBox">
-              <ul className="applySectionBox">
-                <li key={lectureData.id}>
-                  <div className="categoryNickName">
-                    {lectureData.subcategory} · {lectureData.creater_nickname}
-                  </div>
-                  <div className="classTitle">
-                    <h2>{lectureData.title}</h2>
-                  </div>
-                </li>
-                <div className="createInfo">
-                  <div className="availability">
-                    <span>바로 수강 가능</span>
-                  </div>
-                  <li className="price">
-                    {lectureData.discount_rate && lectureData.discount_price ? (
-                      <span className="discount">
-                        -
-                        {Math.floor(lectureData.discount_rate).toLocaleString()}
-                        %{' '}
-                        {Math.floor(
-                          lectureData.discount_price
-                        ).toLocaleString()}
-                      </span>
-                    ) : (
-                      '정가'
-                    )}
-
-                    <span className="totalPrice">
-                      월 {Math.floor(lectureData.price).toLocaleString()}원
-                    </span>
+            <div className="rightInner">
+              <div className="applyBox">
+                <ul className="applySectionBox">
+                  <li key={lectureData.id}>
+                    <div className="categoryNickName">
+                      {lectureData.subcategory} · {lectureData.creater_nickname}
+                    </div>
+                    <div className="classTitle">
+                      <h2>{lectureData.title}</h2>
+                    </div>
                   </li>
-                </div>
-                <div className="classInfo">
-                  <div className="classInfoBox">
-                    <div className="classInfoBoxStyle">
-                      <img src="/images/video.png" />
-                      <div className="contentText">컨텐츠 이용권</div>
+                  <div className="createInfo">
+                    <div className="availability">
+                      <span>바로 수강 가능</span>
                     </div>
-                    <div className="classInfoBoxStyle">
-                      <img src="/images/we.png" />
-                      <div>30기 화이팅</div>
-                    </div>
-                  </div>
-                  <div className="classDetailInfo">
-                    <div className="classInfoBoxStyle">
-                      <img src="/images/person.png" />
-                      <div>{lectureData.difficulty}</div>
-                    </div>
-                    <div className="classInfoBoxStyle">
-                      <img src="/images/good.png" />
-                      <div> 만족도 99%</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="like">
-                  <button onClick={likeBtn}>
-                    {lectureData.likes ? (
-                      <img src="/images/heart.png" />
-                    ) : (
-                      <img src="/images/heart_full.png" />
-                    )}
-                    <span>{lectureData.likes}</span>
-                  </button>
-                </div>
-                <div className="classBtn">
-                  <button className="sendClassLectures" onClick={sendLectures}>
-                    <span>
-                      <span>
-                        {!!localStorage.getItem('access_token')
-                          ? userInfo[lectureData.user_status]
-                          : '수강 옵션 구경하기'}
+                    <li className="price">
+                      {lectureData.discount_rate &&
+                      lectureData.discount_price ? (
+                        <span className="discount">
+                          -
+                          {Math.floor(
+                            lectureData.discount_rate
+                          ).toLocaleString()}
+                          %{' '}
+                          {Math.floor(
+                            lectureData.discount_price
+                          ).toLocaleString()}
+                        </span>
+                      ) : (
+                        '정가'
+                      )}
+
+                      <span className="totalPrice">
+                        월 {Math.floor(lectureData.price).toLocaleString()}원
                       </span>
-                    </span>
-                  </button>
-                </div>
-              </ul>
+                    </li>
+                  </div>
+                  <div className="classInfo">
+                    <div className="classInfoBox">
+                      <div className="classInfoBoxStyle">
+                        <img alt="" src="/images/video.png" />
+                        <div className="contentText">컨텐츠 이용권</div>
+                      </div>
+                      <div className="classInfoBoxStyle">
+                        <img alt="" src="/images/we.png" />
+                        <div>30기 화이팅</div>
+                      </div>
+                    </div>
+                    <div className="classDetailInfo">
+                      <div className="classInfoBoxStyle">
+                        <img alt="" src="/images/person.png" />
+                        <div>{lectureData.difficulty}</div>
+                      </div>
+                      <div className="classInfoBoxStyle">
+                        <img alt="" src="/images/good.png" />
+                        <div> 만족도 99%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="like">
+                    <button onClick={likeBtn}>
+                      {lectureData.likes ? (
+                        <img alt="" src="/images/heart.png" />
+                      ) : (
+                        <img alt="" src="/images/heart_full.png" />
+                      )}
+                      <span>{lectureData.likes}</span>
+                    </button>
+                  </div>
+                  <div className="classBtn">
+                    <button
+                      className="sendClassLectures"
+                      onClick={sendLectures}
+                    >
+                      <span>
+                        <span>
+                          {!!localStorage.getItem('access_token')
+                            ? userInfo[lectureData.user_status]
+                            : '수강 옵션 구경하기'}
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="bottomInner">
-          <div>배너 슬라이드</div>
+          <div className="bannerSlide">
+            <SwiperSlide />
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   ) : (
     <h1>hh</h1>
   );

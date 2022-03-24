@@ -1,0 +1,24 @@
+@import '../../../styles/common.scss';
+
+.category {
+  label {
+    @include label;
+  }
+}
+
+select {
+  @include selector;
+}
+
+.difficulty {
+  label {
+    @include label;
+  }
+
+  select {
+    @include selector;
+
+    option {
+    }
+  }
+}

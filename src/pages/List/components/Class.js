@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { API } from '../../../config';
 import { HeartFill } from '@styled-icons/octicons/HeartFill';
 import { Heart } from '@styled-icons/octicons/Heart';
 
-export default function Class({ data, classData, setClassData }) {
+export default function Class({
+  data,
+  classData,
+  setClassData,
+  creator,
+  student,
+  liking,
+}) {
   const setDataToClassData = () => {
     setClassData(
       classData.map(el => {
@@ -19,7 +27,7 @@ export default function Class({ data, classData, setClassData }) {
   };
 
   const postUserClickLikedBtn = () => {
-    fetch('http://10.58.1.142:8000/lectures/' + data.id + '/like', {
+    fetch(`${API.lectures}/` + data.id + '/like', {
       method: 'POST',
       headers: { Authorization: localStorage.getItem('access_token') },
     });
@@ -37,40 +45,52 @@ export default function Class({ data, classData, setClassData }) {
     postUserClickLikedBtn();
   };
 
-  const currentPrice = (
-    (data.price * (100 - data.discount_rate)) /
-    100
+  const currentPrice = Math.ceil(
+    data.price * (100 - data.discount_rate)
   ).toLocaleString();
 
   return (
     <ClassList>
-      <ClassWrap to="/list">
+      <ClassWrap to={`/detail/${data.id}`}>
         <Picture>
-          {/* <ClassImg alt={data.title} src={data.thumbnail_image} /> */}
           <ClassImg
             alt={data.title}
-            src="https://images.unsplash.com/photo-1640622299541-8c8ab8a098f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80"
+            src={
+              data.thumbnail_image
+                ? data.thumbnail_image
+                : 'https://images.unsplash.com/photo-1640622299541-8c8ab8a098f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80'
+            }
           />
-          {data.discount_rate > 0 && <OnSaleMark>할인 중</OnSaleMark>}
+          {data.discount_rate > 0 && !student && !creator && (
+            <OnSaleMark>할인 중</OnSaleMark>
+          )}
         </Picture>
         <ClassInfo>
-          <Teacher>{data.creator_nickname}</Teacher>
+          {!creator && (
+            <Teacher>
+              {data.creator_nickname ? data.creator_nickname : '클나쓰'}
+            </Teacher>
+          )}
           <ClassTitle>{data.title}</ClassTitle>
           <HeartCount>
             <IconHeartCount />
-            {data.liked_count}
+            {data.liked_count ? data.liked_count : data.likes}
           </HeartCount>
         </ClassInfo>
-        <div>
-          {data.discount_rate > 0 && (
-            <DiscountRate>{data.discount_rate}%</DiscountRate>
-          )}
-          <ClassPrice>{currentPrice}원</ClassPrice>
-        </div>
+        {!creator && !student && (
+          <div>
+            {data.discount_rate > 0 && (
+              <DiscountRate>{data.discount_rate}%</DiscountRate>
+            )}
+            <ClassPrice>{currentPrice}원</ClassPrice>
+          </div>
+        )}
       </ClassWrap>
-      <HeartBtn onClick={clickheartBtn}>
-        {data.user_liked ? <IconHeartFill /> : <IconHeart />}
-      </HeartBtn>
+      {!liking && !creator && (
+        <HeartBtn onClick={clickheartBtn}>
+          {data.user_liked ? <IconHeartFill /> : <IconHeart />}
+        </HeartBtn>
+      )}
     </ClassList>
   );
 }

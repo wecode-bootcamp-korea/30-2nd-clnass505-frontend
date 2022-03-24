@@ -15,11 +15,11 @@ export default function UserBoxSection({ clickLogout, clickUserBtn }) {
 
   return (
     <UserBox ref={ref}>
-      <ToMyPage to="/mypage">
+      <ToMyPage to="/mypage" onClick={clickMyPage}>
         <UserIcon />
         <UserInfo>
           <UserName>클라쓰</UserName>
-          <MyPage onClick={clickMyPage}>
+          <MyPage>
             마이페이지
             <ArrowForwardIcon />
           </MyPage>

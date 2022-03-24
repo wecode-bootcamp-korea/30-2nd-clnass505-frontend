@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSort } from '../../redux/listFiltering';
+import { API } from '../../config';
 import useOutsideClick from './hooks/useOutsideClick';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import ModalWrap from './components/ModalWrap';
 import Filter from './components/Filter';
 import Class from './components/Class';
@@ -62,15 +65,32 @@ export default function List() {
     navigate(`?${queryStringResult}`);
   }, [navigate, listFiltering, location.search]);
 
+  // 동규
+  // localStorage.setItem(
+  //   'access_token',
+  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1NiwiZXhwIjoxNjQ4MjI3NDA5fQ.R4fWZU6V_4CcMK1LI5m6vkGPL6AeDWhTr-_kxk-4c_M'
+  // );
+
+  // 영현
+  // localStorage.setItem(
+  //   'access_token',
+  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgyMTIyMTJ9.NWwyki-UPkP6wJTIYPBTNwZBrNVCUhvQ4VrsbkTspQw'
+  // );
+
   useEffect(() => {
-    // fetch('/data/listData.json' + queryStringResult)
-    fetch('http://10.58.1.142:8000/lectures' + decodeURI(location.search), {
-      headers: { Authorization: localStorage.getItem('access_token') },
-      // body: JSON.stringify({}),
-    })
-      .then(res => res.json())
-      .then(res => setClassData(res.result));
-    // .then(res => console.log(res));
+    if (localStorage.getItem('access_token')) {
+      fetch(`${API.lectures}` + location.search, {
+        headers: { Authorization: localStorage.getItem('access_token') },
+      })
+        .then(res => res.json())
+        .then(res => setClassData(res.data));
+      // .then(res => console.log(res));
+    } else {
+      fetch(`${API.lectures}` + location.search)
+        .then(res => res.json())
+        .then(res => setClassData(res.data));
+      // .then(res => console.log(res));
+    }
   }, [location.search]);
 
   const openModal = e => {
@@ -104,64 +124,70 @@ export default function List() {
   };
 
   return (
-    <ListPageWrap>
-      {FILTER_DATA.map((data, index) => {
-        return (
-          <ModalWrap
-            key={index}
-            modalOpen={modalOpen}
-            closeModal={closeModal}
-            clickFilter={clickFilter}
-            ref={el => (ref.current[index] = el)}
-            title={data.title}
-            list={data.list}
-          />
-        );
-      })}
-      <ListPage>
-        <FilterWrap>
-          <Filter
-            name={listFiltering.sort.length > 0 ? listFiltering.sort : '인기순'}
-            openModal={openModal}
-          />
-          <Filter name="난이도" openModal={openModal} />
-        </FilterWrap>
-        <ClassListWrap>
-          {classData.map((data, index) => {
-            return (
-              index < 8 && (
-                <Class
-                  key={data.id}
-                  data={data}
-                  classData={classData}
-                  setClassData={setClassData}
-                />
-              )
-            );
-          })}
-        </ClassListWrap>
-        <SwiperSlide />
-        <ClassListWrap>
-          {classData.map((data, index) => {
-            return (
-              index >= 8 && (
-                <Class
-                  key={data.id}
-                  data={data}
-                  classData={classData}
-                  setClassData={setClassData}
-                />
-              )
-            );
-          })}
-        </ClassListWrap>
-      </ListPage>
-      {classData.length === 0 && (
-        <NoData>
-          일치하는 <NoDataClass>Class</NoDataClass>가 없습니다.
-        </NoData>
-      )}
-    </ListPageWrap>
+    <>
+      <Nav />
+      <ListPageWrap>
+        {FILTER_DATA.map((data, index) => {
+          return (
+            <ModalWrap
+              key={index}
+              modalOpen={modalOpen}
+              closeModal={closeModal}
+              clickFilter={clickFilter}
+              ref={el => (ref.current[index] = el)}
+              title={data.title}
+              list={data.list}
+            />
+          );
+        })}
+        <ListPage>
+          <FilterWrap>
+            <Filter
+              name={
+                listFiltering.sort.length > 0 ? listFiltering.sort : '인기순'
+              }
+              openModal={openModal}
+            />
+            <Filter name="난이도" openModal={openModal} />
+          </FilterWrap>
+          <ClassListWrap>
+            {classData.map((data, index) => {
+              return (
+                index < 8 && (
+                  <Class
+                    key={data.id}
+                    data={data}
+                    classData={classData}
+                    setClassData={setClassData}
+                  />
+                )
+              );
+            })}
+          </ClassListWrap>
+          <SwiperSlide />
+          <ClassListWrap>
+            {classData.map((data, index) => {
+              return (
+                index >= 8 && (
+                  <Class
+                    key={data.id}
+                    data={data}
+                    classData={classData}
+                    setClassData={setClassData}
+                  />
+                )
+              );
+            })}
+          </ClassListWrap>
+        </ListPage>
+        {classData.length === 0 && (
+          <NoData>
+            일치하는 <NoDataClass>Class</NoDataClass>가 없습니다.
+          </NoData>
+        )}
+      </ListPageWrap>
+      <Footer />
+    </>
   );
 }
 

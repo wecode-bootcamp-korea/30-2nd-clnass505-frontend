@@ -1,0 +1,40 @@
+@import '../../../styles/common.scss';
+
+.picture {
+  .title {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 4px;
+    color: rgb(26, 26, 26);
+  }
+
+  .pictureInput {
+    display: flex;
+    justify-content: center;
+
+    input {
+      width: 30%;
+      height: 400px;
+      margin-bottom: 8px;
+      border: 1px solid rgb(239, 239, 239);
+      background-color: white;
+      flex: 1 1 auto;
+      color: rgb(26, 26, 26);
+    }
+  }
+}

@@ -2,14 +2,13 @@ import React from 'react';
 import './DetailReviews.scss';
 
 function DetailReviews({ user, title, content, rating, image_url }) {
-  console.log(user);
   return (
     <div className="DetailReviews">
       <div className="reviewBox">
         <div className="restingUserBox">
           <div className="reviewUser">{user}</div>
           <div className="StarRating">
-            <img className="star" src="/images/star.png" />
+            <img alt="" className="star" src="/images/star.png" />
             <div className="reviewRating">{rating} 점</div>
           </div>
         </div>

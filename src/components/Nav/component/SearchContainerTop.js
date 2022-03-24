@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetAll } from '../../../redux/listFiltering';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/boxicons-regular/Search';
 import { CloseSolid } from '@styled-icons/zondicons/CloseSolid';
@@ -15,6 +17,7 @@ export default function SearchContainerTop({
     setSearchValue(event.target.value);
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submitSearchForm = event => {
     event.preventDefault();
@@ -27,6 +30,7 @@ export default function SearchContainerTop({
     }
     const queryString = `?search=${searchValue}`;
     setSearchValue('');
+    dispatch(resetAll());
     navigate('/list' + queryString);
     clickCloseSearchBox();
   };

@@ -1,0 +1,45 @@
+@import '../../../styles/common.scss';
+
+.Create3Wrap {
+  .createrPicture {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .createrName {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .createrDescription {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+}

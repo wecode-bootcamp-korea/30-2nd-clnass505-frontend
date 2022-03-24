@@ -1,5 +1,6 @@
-import { useState, forwardRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, forwardRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFilter, resetFilter } from '../../../redux/listFiltering';
 import ModalWindow from './ModalWindow';
 import styled from 'styled-components';
@@ -8,8 +9,16 @@ export default forwardRef(function ModalWrap(
   { modalOpen, closeModal, clickFilter, title, list },
   ref
 ) {
+  const listFiltering = useSelector(store => store.listFiltering);
   const [difficultyData, setDifficultyData] = useState([]);
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (listFiltering.difficulty.length === 0) {
+      setDifficultyData([]);
+    }
+  }, [location.search]);
 
   let name;
   if (title === '정렬') {

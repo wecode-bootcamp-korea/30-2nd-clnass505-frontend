@@ -31,14 +31,19 @@ export default function Category({
     }
   };
 
+  const categoryId = { 위코드: 1 };
+  const subcategoryId = { '30기': 1, 멘토: 2 };
+
   const clickMainCategory = event => {
-    let queryStrging = `?category=${event.target.id}`;
+    let queryStrging = `?category=${categoryId[event.target.id]}`;
     dispatch(resetAll());
     navigate('/list' + queryStrging);
   };
 
   const clickSubCategory = event => {
-    let queryStrging = `?category=${title}&subcategory=${event.target.innerText}`;
+    let queryStrging = `?category=${categoryId[title]}&subcategory=${
+      subcategoryId[event.target.innerText]
+    }`;
     dispatch(resetAll());
     navigate('/list' + queryStrging);
   };

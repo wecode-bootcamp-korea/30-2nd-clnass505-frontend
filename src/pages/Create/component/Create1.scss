@@ -1,0 +1,83 @@
+@import '../../../styles/common.scss';
+
+.Create1Wrap {
+  .name {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .classDescription {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .price {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input[type='number'] {
+      @include input;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+      }
+    }
+  }
+
+  .salePercent {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input[type='number'] {
+      @include input;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+      }
+    }
+  }
+
+  .thumbnail {
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      margin-bottom: 4px;
+      color: rgb(26, 26, 26);
+    }
+
+    input {
+      @include input;
+    }
+  }
+}

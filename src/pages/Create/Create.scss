@@ -15,29 +15,6 @@
       width: 100%;
       padding: 32px 60px;
 
-      .category {
-        label {
-          @include label;
-        }
-      }
-
-      select {
-        @include selector;
-      }
-
-      .difficulty {
-        label {
-          @include label;
-        }
-
-        select {
-          @include selector;
-
-          option {
-          }
-        }
-      }
-
       .submit {
         display: flex;
         justify-content: flex-end;
@@ -51,6 +28,7 @@
           font-size: 14px;
           color: white;
           text-decoration: none;
+          cursor: pointer;
         }
       }
     }

@@ -80,25 +80,25 @@ export default function Detail() {
 
   // TODO : 추후 구현 예정
   const postLikeData = () => {
-    // fetch(`${API.likes}/lectures/${params.id}/like`, {
-    //   method: 'POST',
-    //   headers: { Authorization: accessToken },
-    // }).then(res => res.json);
+    fetch(`${API.likes}/lectures/${params.id}/like`, {
+      method: 'POST',
+      headers: { Authorization: accessToken },
+    }).then(res => res.json);
   };
 
   // TODO : 추후 구현 예정
   const likeBtn = () => {
-    // lectureData.is_liked = !lectureData.;
-    // if (lectureData. === false) {
-    //   // setLikeCount(prevCount => prevCount - 1);
-    //   lectureData.likes--;
-    //   setisLiked();
-    // } else {
-    //   // setLikeCount(prevCount => prevCount + 1);
-    //   lectureData.likes++;
-    //   setisLiked();
-    // }
-    // postLikeData();
+    lectureData.is_liked = !lectureData.is_liked;
+    if (lectureData.is_liked === false) {
+      // setLikeCount(prevCount => prevCount - 1);
+      lectureData.likes--;
+      setisLiked();
+    } else {
+      // setLikeCount(prevCount => prevCount + 1);
+      lectureData.likes++;
+      setisLiked();
+    }
+    postLikeData();
   };
 
   const userInfo = {
@@ -116,14 +116,14 @@ export default function Detail() {
         <div className="titleBox">
           <div className="titleImg">
             <div className="titleImgMain">
-              <img alt="" src={lectureData.detail_image_url[3]} />
+              <img src={lectureData.detail_image_url[1]} />
             </div>
             <div className="subImgBox">
               <div className="titleSubImg">
-                <img alt="" src={lectureData.detail_image_url[2]} />
+                <img src={lectureData.detail_image_url[2]} />
               </div>
               <div className="titleSubImg">
-                <img alt="" src={lectureData.detail_image_url[1]} />
+                <img src={lectureData.detail_image_url[3]} />
               </div>
             </div>
           </div>
@@ -158,7 +158,8 @@ export default function Detail() {
                         ref={createrInfoRef}
                         tabIndex="-1"
                       />
-                      <img alt="" src={lectureData.thumbnail_image} />
+                      <img src={lectureData.thumbnail_image} />
+                      <img src={lectureData.detail_image_url[1]} />
                     </div>
                     <h2>수강생들의 생생한 스토리</h2>
                   </div>
@@ -166,7 +167,9 @@ export default function Detail() {
                     {lectureData.review_avg_rating ? (
                       <ReviewList lectureData={lectureData} />
                     ) : (
-                      <div className="noReview">리뷰가 아직 없습니다'</div>
+                      <div className="noReview">
+                        '앗! 리뷰가 아직 없습니다 😥 리뷰 써주세요~'{' '}
+                      </div>
                     )}
                   </div>
                   <div className="refund" ref={refundRef} tabIndex="-1">
@@ -244,7 +247,7 @@ export default function Detail() {
                   </div>
                   <div className="like">
                     <button onClick={likeBtn}>
-                      {lectureData.likes ? (
+                      {!lectureData.is_liked ? (
                         <img alt="" src="/images/heart.png" />
                       ) : (
                         <img alt="" src="/images/heart_full.png" />
@@ -278,6 +281,6 @@ export default function Detail() {
       <Footer />
     </>
   ) : (
-    <h1>hh</h1>
+    <h1>30기 화이팅!</h1>
   );
 }

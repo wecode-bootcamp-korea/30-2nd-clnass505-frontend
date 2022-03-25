@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import UserSection from './component/UserSection';
 import SearchSection from './component/SearchSection';
@@ -13,8 +12,8 @@ export default function Nav() {
   const [isLogin, setIsLogin] = useState(
     !!localStorage.getItem('access_token')
   );
-
   const [visibleSearchSection, setVisibleSearchSection] = useState(false);
+  const navigate = useNavigate();
 
   const clickUserBtn = () => {
     setIsClickUserBtn(!isClickUserBtn);
@@ -23,6 +22,7 @@ export default function Nav() {
   const clickLogout = () => {
     setIsLogin(false);
     localStorage.removeItem('access_token');
+    navigate('/list');
   };
 
   const clickSearchBox = () => {

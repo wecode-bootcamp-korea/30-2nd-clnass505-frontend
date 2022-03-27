@@ -9,6 +9,7 @@
 ## 프로젝트 참여 인원
 
 프론트 엔드 : [조진목](https://github.com/ChoJinmok) , [신윤지]() , [노유정](https://github.com/YOOKIKI)
+<
 백엔드 : 박건우 , 김동규 , 이지원
 
 ## 필수 구현 사항

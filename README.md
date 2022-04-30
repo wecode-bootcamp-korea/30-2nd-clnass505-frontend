@@ -41,7 +41,7 @@
 
 ## 구현 파트
 
-1. 조진목 : List / Nav / Footer / MyPage
+1. 조진목 : List / Nav / Footer / MyPage / Create
 2. 신윤지 : Create
 3. 노유정 : Login / Detail
 

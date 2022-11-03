@@ -46,7 +46,7 @@ export default function Class({
   };
 
   const currentPrice = Math.ceil(
-    data.price * (100 - data.discount_rate)
+    (data.price * (100 - data.discount_rate)) / 100
   ).toLocaleString();
 
   return (

@@ -15,7 +15,11 @@ function DetailReviews({ user, title, content, rating, image_url }) {
         <div className="reviewTitle">{title}</div>
         <div className="reviewContent">{content}</div>
         <div className="reviewImg">
-          <img src={image_url} alt="reviewUserImg" className="reviewUserImg" />
+          <img
+            src={image_url ? image_url : '/images/clanass.png'}
+            alt="reviewUserImg"
+            className="reviewUserImg"
+          />
         </div>
         <div className="reviewHelpBox">
           <div className="reviewHelp">도움이 되셨나요?</div>

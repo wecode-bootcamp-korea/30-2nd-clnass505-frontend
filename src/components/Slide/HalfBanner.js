@@ -5,9 +5,7 @@ export default function HalfBanner({ data }) {
     <SlideContent bgColor={data.bannerColor}>
       <BannerInfo>
         <BannerTitle>{data.title}</BannerTitle>
-        <BannerContent>{data.content}</BannerContent>
-        <h1>{data.title}</h1>
-        <span>{data.content}</span>
+        <BannerContent>{data.content}</BannerContent> 
       </BannerInfo>
       <BannerPicture>
         <img alt={data.title} src={data.image} />

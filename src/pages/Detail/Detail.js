@@ -107,8 +107,6 @@ export default function Detail() {
     creator: '내 강좌입니다',
   };
 
-  // console.log(lectureData.detail_image_url);
-
   return lectureData ? (
     <>
       <Nav />
@@ -191,7 +189,7 @@ export default function Detail() {
                 <ul className="applySectionBox">
                   <li key={lectureData.id}>
                     <div className="categoryNickName">
-                      {lectureData.subcategory} · {lectureData.creater_nickname}
+                      {lectureData.subcategory} · {lectureData.creator_nickname}
                     </div>
                     <div className="classTitle">
                       <h2>{lectureData.title}</h2>

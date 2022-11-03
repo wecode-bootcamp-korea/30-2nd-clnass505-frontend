@@ -17,7 +17,7 @@ export default function Detail() {
   const wecodeRef = useRef();
   const params = useParams();
   const [lectureData, setLectureData] = useState(null);
-  const [likeCount, setLikeCount] = useState(0);
+  // const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setisLiked] = useState(false);
 
   const accessToken = localStorage.getItem('access_token');
@@ -41,7 +41,7 @@ export default function Detail() {
           setLectureData(data.result);
         });
     }
-  }, []);
+  }, [accessToken, params.id]);
 
   const sendLectures = () => {
     fetch(`${API.detail}`, {
@@ -114,14 +114,14 @@ export default function Detail() {
         <div className="titleBox">
           <div className="titleImg">
             <div className="titleImgMain">
-              <img src={lectureData.detail_image_url[1]} />
+              <img alt="" src={lectureData.detail_image_url[1]} />
             </div>
             <div className="subImgBox">
               <div className="titleSubImg">
-                <img src={lectureData.detail_image_url[2]} />
+                <img alt="" src={lectureData.detail_image_url[2]} />
               </div>
               <div className="titleSubImg">
-                <img src={lectureData.detail_image_url[3]} />
+                <img alt="" src={lectureData.detail_image_url[3]} />
               </div>
             </div>
           </div>
@@ -156,8 +156,8 @@ export default function Detail() {
                         ref={createrInfoRef}
                         tabIndex="-1"
                       />
-                      <img src={lectureData.thumbnail_image} />
-                      <img src={lectureData.detail_image_url[1]} />
+                      <img alt="" src={lectureData.thumbnail_image} />
+                      <img alt="" src={lectureData.detail_image_url[1]} />
                     </div>
                     <h2>수강생들의 생생한 스토리</h2>
                   </div>

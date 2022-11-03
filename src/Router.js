@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './pages/Main/Main';
 import List from './pages/List/List';
 import Login from './pages/Login/Login';
 import KakaoLogin from './pages/Login/KakaoLogin';
@@ -11,7 +12,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<List />} />;
+        <Route path="/" element={<Main />} />;
         <Route path="/list" element={<List />} />;
         <Route path="/login" com element={<Login />} />;
         <Route path="/oauth/kakao" element={<KakaoLogin />} />

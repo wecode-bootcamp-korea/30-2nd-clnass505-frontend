@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Create2.scss';
 
 export default function Create2({ handleInput, uploadImage }) {

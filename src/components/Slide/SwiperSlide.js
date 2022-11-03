@@ -18,11 +18,7 @@ export default function SwiperSlide() {
 
   return (
     <Slide>
-      <SlideBtnLeft
-        onClick={clickLeftBtn}
-        // className={slideLocation === 0 ? 'disabled' : ''}
-        disabled={slideLocation === 0}
-      >
+      <SlideBtnLeft onClick={clickLeftBtn} disabled={slideLocation === 0}>
         <IconLeft />
       </SlideBtnLeft>
       <SwiperContainer>

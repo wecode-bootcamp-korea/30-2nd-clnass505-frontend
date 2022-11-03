@@ -5,7 +5,7 @@ export default function HalfBanner({ data }) {
     <SlideContent bgColor={data.bannerColor}>
       <BannerInfo>
         <BannerTitle>{data.title}</BannerTitle>
-        <BannerContent>{data.content}</BannerContent>
+        <BannerContent>{data.content}</BannerContent> 
       </BannerInfo>
       <BannerPicture>
         <img alt={data.title} src={data.image} />
@@ -46,6 +46,18 @@ const BannerContent = styled.span`
   margin-top: 6px;
   font-size: 14px;
   line-height: 20px;
+
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+  }
+
+  span {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 const BannerPicture = styled.div`

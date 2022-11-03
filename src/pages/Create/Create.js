@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CreateNav from './component/CreateNav';
 import CreateLeft from './component/CreateLeft';
 import CreateText from './component/CreateText';
@@ -28,6 +28,7 @@ export default function Çreate() {
     nickname: localStorage.getItem('nickname'),
     introduce: localStorage.getItem('introduce'),
   });
+  const navigate = useNavigate();
 
   const handleInput = e => {
     setCreateData(prev => ({ ...prev, [e.target.id]: e.target.value }));
@@ -56,21 +57,22 @@ export default function Çreate() {
   const formData = new FormData();
 
   const submitCreateForm = () => {
-    const lecture_images = [
-      createData.lecture_image1[0],
-      createData.lecture_image2[0],
-      createData.lecture_image3[0],
-    ];
-    // console.log(lecture_images);
-    formData.append('lecture_images', lecture_images);
+    // const lecture_images = [
+    //   createData.lecture_image1[0],
+    //   createData.lecture_image2[0],
+    //   createData.lecture_image3[0],
+    // ];
+    // // console.log(lecture_images);
+    // formData.append('lecture_images', lecture_images);
     for (const key in createData) {
-      if (
-        key === 'category' &&
-        key === 'lecture_image1' &&
-        key === 'lecture_image2' &&
+      if (key === 'category') {
+        continue;
+      } else if (
+        key === 'lecture_image1' ||
+        key === 'lecture_image2' ||
         key === 'lecture_image3'
       ) {
-        continue;
+        formData.append(key, createData[key][0]);
       } else if (key === 'subcategory') {
         formData.append('subcategory_id', subcategoryId[createData[key]]);
       } else if (key === 'difficulty') {
@@ -81,6 +83,9 @@ export default function Çreate() {
           continue;
         }
         formData.append(key, 0);
+      } else if (key === 'price') {
+        formData.append(key, createData[key]);
+        continue;
       } else if (
         key !== 'thumbnail' &&
         key !== 'lecture_image1' &&
@@ -103,14 +108,17 @@ export default function Çreate() {
     })
       .then(res => res.json())
       .then(res => {
-        // if (res.message === 'SUCCESS') return history.push('/');
-        console.log(res);
+        // console.log(res);
+        if (res.message === 'success') {
+          alert('축하합니다😆 강의가 생성됐어요!');
+          navigate('/list');
+        }
       });
   };
 
   // localStorage.setItem(
   //   'access_token',
-  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1NiwiZXhwIjoxNjQ4MjQwOTg1fQ.-Xods0TVoQvRWYG-Fn_6YTuItI2y-DHUnS51-YHkA4g'
+  //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1NiwiZXhwIjoxNjQ4MjU1Nzk3fQ.Hi59s8DD57UF-tGBBh1AKazCt58G8oHnD4UaWMXyxjQ'
   // );
 
   return (

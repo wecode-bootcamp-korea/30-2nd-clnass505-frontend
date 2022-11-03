@@ -46,7 +46,7 @@ export default function Class({
   };
 
   const currentPrice = Math.ceil(
-    data.price * (100 - data.discount_rate)
+    (data.price * (100 - data.discount_rate)) / 100
   ).toLocaleString();
 
   return (
@@ -58,6 +58,8 @@ export default function Class({
             src={
               data.thumbnail_image
                 ? data.thumbnail_image
+                : data.thumbnail_image_url
+                ? data.thumbnail_image_url
                 : 'https://images.unsplash.com/photo-1640622299541-8c8ab8a098f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80'
             }
           />

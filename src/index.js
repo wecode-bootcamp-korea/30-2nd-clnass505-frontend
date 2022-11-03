@@ -10,11 +10,13 @@ import rootReducer from './redux';
 import theme from './styles/theme';
 import './styles/reset.scss';
 import './styles/common.scss';
+// import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* <ScrollToTop /> */}
     <GlobalStyle />
     <GlobalFonts />
     <ThemeProvider theme={theme}>

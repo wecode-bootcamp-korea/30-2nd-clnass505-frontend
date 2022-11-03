@@ -16,7 +16,7 @@ function ReviewList({ lectureData }) {
               title={title}
               content={content}
               rating={rating}
-              image_url={image_url[1]}
+              image_url={image_url[0]}
             />
           );
         })}
